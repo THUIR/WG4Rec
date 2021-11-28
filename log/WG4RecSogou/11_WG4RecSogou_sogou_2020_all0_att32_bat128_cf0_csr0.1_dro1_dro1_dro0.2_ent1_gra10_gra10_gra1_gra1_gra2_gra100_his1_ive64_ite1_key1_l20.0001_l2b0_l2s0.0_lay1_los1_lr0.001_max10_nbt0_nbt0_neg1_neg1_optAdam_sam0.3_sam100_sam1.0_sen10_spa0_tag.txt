@@ -1,0 +1,792 @@
+INFO:root:--------------------------------------------- BEGIN: 2021-11-24 20:15:41 ---------------------------------------------
+INFO:root:
+========================================
+ Arguments       | Values               
+========================================
+ all_his         | 0                   
+ att_size        | 32                  
+ batch_size      | 128                 
+ buffer_dp       | 0                   
+ cf              | 0                   
+ check_epoch     | 1                   
+ check_train     | 0                   
+ cs_ratio        | 0.1                 
+ dataset         | sogou               
+ debugging       | 0                   
+ dict_size       | 500000              
+ drop_neg        | 1                   
+ drop_no_his     | 1                   
+ dropout         | 0.2                 
+ early_stop      | 1                   
+ entity_tail     | 1                   
+ epoch           | 100                 
+ es_long         | 40                  
+ es_worse        | 10                  
+ eval_batch_size | 32                  
+ gc              | 0                   
+ gc_batch        | 0                   
+ gpu             | 3                   
+ grad_clip_n     | 10                  
+ grad_clip_v     | 10                  
+ graph_l         | 1                   
+ graph_sample    | 1                   
+ graph_tn        | 2                   
+ graph_wn        | 100                 
+ his_rnn         | 1                   
+ i_vector_size   | 64                  
+ item_query      | 1                   
+ keyword_head    | 1                   
+ l2              | 0.0001              
+ l2_bias         | 0                   
+ l2s             | 0.0                 
+ label           | label               
+ layer_norm      | 1                   
+ load            | 0                   
+ log_file        | ../log/WG4RecSogo...
+ loss_sum        | 1                   
+ lr              | 0.001               
+ max_his         | 10                  
+ metrics         | ndcg@5,ndcg@10,hi...
+ model_path      | ../model/WG4RecSo...
+ nb_topic        | 0                   
+ nb_type         | 0                   
+ neg_column      | 1                   
+ neg_his         | 1                   
+ num_workers     | 16                  
+ optimizer       | Adam                
+ path            | ../dataset/         
+ pin_memory      | 1                   
+ pre_gpu         | 0                   
+ random_seed     | 2020                
+ rank            | 1                   
+ regenerate      | 0                   
+ result_file     | ../result/WG4RecS...
+ sample_given_p  | 0.3                 
+ sample_pop      | 100                 
+ sample_un_p     | 1.0                 
+ save_res        | 1                   
+ sent_max        | 10                  
+ sparse_his      | 0                   
+ tag_head        | 0                   
+ test_sample_n   | 99                  
+ topic_head      | 0                   
+ train           | 1                   
+ train_sample_n  | 1                   
+ u_vector_size   | 64                  
+ unlabel_test    | 0                   
+ verbose         | 20                  
+ w2v_size        | 64                  
+ word_tn         | 1                   
+ word_wn         | 10                  
+========================================
+INFO:root:DataReader: WG4RecDR
+INFO:root:Model: WG4RecSogou
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: SogouDP
+INFO:root:# cuda devices: 1
+INFO:root:
+WG4RecDR: 
+============================
+ Arguments    | Values      
+============================
+ all_his      | 0          
+ dataset      | sogou      
+ dict_size    | 500000     
+ drop_no_his  | 1          
+ entity_tail  | 1          
+ graph_tn     | 2          
+ graph_wn     | 100        
+ keyword_head | 1          
+ label        | label      
+ max_his      | 10         
+ neg_column   | 1          
+ neg_his      | 1          
+ path         | ../dataset/
+ regenerate   | 0          
+ sent_max     | 10         
+ tag_head     | 0          
+ topic_head   | 0          
+============================
+INFO:root:load train csv...
+INFO:root:size of train: 2001363
+INFO:root:train label: {1: 1260019, -1: 741344}
+INFO:root:load validation csv...
+INFO:root:size of validation: 38510
+INFO:root:validation label: {1: 25101, -1: 13409}
+INFO:root:load test csv...
+INFO:root:size of test: 36623
+INFO:root:test label: {1: 23367, -1: 13256}
+INFO:root:load history csv...
+INFO:root:load dictionary csv...
+INFO:root:load doc text...
+INFO:root:load url text...
+INFO:root:load word graph...
+INFO:root:word graph: ['word_topic', 'topic_cf', 'w2v_sim', 'word_co', 'word_cf']
+INFO:root:# of users: 68897
+INFO:root:# of items: 588913
+INFO:root:# of user features: 0
+INFO:root:# of item features: 0
+INFO:root:# of context features: 0
+INFO:root:# of features: 0
+INFO:root:data columns: ['uid', 'iid', 'time', 'position', 'query_id', 'neg_iids']
+INFO:root:Append history...
+INFO:root:Drop samples with no history...
+INFO:root:size of train: 1933252
+INFO:root:size of validation: 38190
+INFO:root:size of test: 36331
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 1208233, 0: 725019}
+INFO:root:validation label: {1: 24791, 0: 13399}
+INFO:root:test label: {1: 23085, 0: 13246}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 1208233
+INFO:root:size of validation: 24791
+INFO:root:size of test: 23085
+INFO:root:Saving corpus to ../dataset/sogou/buffer/11_WG4RecDR_all0_dro1_ent1_gra2_gra100_key1_max10_neg1_neg1_sen10_tag0_top0.pk
+INFO:root:
+SogouDP: 
+========================================
+ Arguments       | Values               
+========================================
+ batch_size      | 128                 
+ buffer_dp       | 0                   
+ data_reader     | <data_readers.WG4...
+ eval_batch_size | 32                  
+ graph_l         | 1                   
+ graph_sample    | 1                   
+ max_his         | 10                  
+ model_name      | <class 'models.WG...
+ nb_topic        | 0                   
+ nb_type         | 0                   
+ rank            | 1                   
+ sample_given_p  | 0.3                 
+ sample_pop      | 100                 
+ sample_un_p     | 1.0                 
+ sparse_his      | 0                   
+ test_sample_n   | 99                  
+ train_sample_n  | 1                   
+ word_tn         | 1                   
+ word_wn         | 10                  
+========================================
+INFO:root:load neg iids from ../dataset/sogou/sogou.validation_iids.csv
+INFO:root:load neg iids from ../dataset/sogou/sogou.test_iids.csv
+INFO:root:Model # of features 0
+INFO:root:Model # of feature dims 0
+INFO:root:
+WG4RecSogou: 
+========================================
+ Arguments       | Values               
+========================================
+ att_size        | 32                  
+ cf              | 0                   
+ cs_ratio        | 0.1                 
+ dictionary_size | 500000              
+ feature_num     | 0                   
+ his_rnn         | 1                   
+ i_vector_size   | 64                  
+ item_num        | 588913              
+ item_query      | 1                   
+ l2_bias         | 0                   
+ label_max       | 1                   
+ label_min       | 0                   
+ layer_norm      | 1                   
+ loss_sum        | 1                   
+ model_path      | ../model/WG4RecSo...
+ random_seed     | 2020                
+ u_vector_size   | 64                  
+ user_num        | 68897               
+ w2v_size        | 64                  
+========================================
+INFO:root:# of params: 32087424
+INFO:root:WG4RecSogou(
+  (word_embeddings): Embedding(500000, 64)
+  (graph_att_q): Linear(in_features=64, out_features=32, bias=True)
+  (graph_att_k): Linear(in_features=64, out_features=32, bias=True)
+  (word_g_trans): Linear(in_features=128, out_features=64, bias=False)
+  (glayer_att_q): Linear(in_features=64, out_features=32, bias=True)
+  (glayer_att_k): Linear(in_features=64, out_features=32, bias=True)
+  (word_att_q): Linear(in_features=64, out_features=32, bias=True)
+  (word_att_k): Linear(in_features=64, out_features=32, bias=True)
+  (word2doc): Linear(in_features=64, out_features=64, bias=True)
+  (doc_att_query): Linear(in_features=64, out_features=32, bias=True)
+  (doc_att_key): Linear(in_features=64, out_features=32, bias=True)
+  (url_att_query): Linear(in_features=64, out_features=32, bias=True)
+  (url_att_key): Linear(in_features=64, out_features=32, bias=True)
+  (doc_rnn): GRU(64, 64, batch_first=True)
+  (url_rnn): GRU(64, 64, batch_first=True)
+  (icb_att_query): Linear(in_features=32, out_features=1, bias=False)
+  (icb_att_key): Linear(in_features=64, out_features=32, bias=True)
+  (ucb_att_query): Linear(in_features=32, out_features=1, bias=False)
+  (ucb_att_key): Linear(in_features=64, out_features=32, bias=True)
+  (act): LeakyReLU(negative_slope=0.01)
+  (act_v): LeakyReLU(negative_slope=0.01)
+  (ui_layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+)
+INFO:root:
+BaseRunner: 
+========================================
+ Arguments       | Values               
+========================================
+ batch_size      | 128                 
+ check_epoch     | 1                   
+ check_train     | 0                   
+ dropout         | 0.2                 
+ early_stop      | 1                   
+ epoch           | 100                 
+ es_long         | 40                  
+ es_worse        | 10                  
+ eval_batch_size | 32                  
+ gc              | 0                   
+ gc_batch        | 0                   
+ grad_clip_n     | 10                  
+ grad_clip_v     | 10                  
+ l2              | 0.0001              
+ l2_bias         | 0                   
+ l2s             | 0.0                 
+ lr              | 0.001               
+ metrics         | ndcg@5,ndcg@10,hi...
+ num_workers     | 16                  
+ optimizer       | Adam                
+ pin_memory      | 1                   
+ pre_gpu         | 0                   
+========================================
+INFO:root:Init: 	 train=  validation= 0.0233,0.0375,0.0448,0.0956 test= 0.0233,0.0370,0.0458,0.0946 [539.1 s] ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Optimizer: Adam
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 40.8855, l2 = 8.3891, 0.0000
+INFO:root:
+INFO:root:Epoch   1.0 [1281.0 s] 	 train= 40.8855,83890.8672 valid= 0.3466,0.3944,0.5285,0.6831 test= 0.3537,0.4006,0.5369,0.6880 [528.7 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 31.0598, l2 = 19.6480, 0.0000
+INFO:root:
+INFO:root:Epoch   2.0 [1704.3 s] 	 train= 31.0598,196479.6562 valid= 0.3880,0.4349,0.5764,0.7241 test= 0.3940,0.4401,0.5808,0.7287 [648.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 28.6280, l2 = 25.3456, 0.0000
+INFO:root:
+INFO:root:Epoch   3.0 [1646.6 s] 	 train= 28.6280,253456.1406 valid= 0.4022,0.4481,0.5888,0.7350 test= 0.4069,0.4540,0.5947,0.7439 [592.7 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 27.2769, l2 = 28.7632, 0.0000
+INFO:root:
+INFO:root:Epoch   4.0 [1678.3 s] 	 train= 27.2769,287631.5312 valid= 0.4113,0.4568,0.5966,0.7416 test= 0.4148,0.4611,0.6025,0.7476 [619.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 26.3188, l2 = 31.0503, 0.0000
+INFO:root:
+INFO:root:Epoch   5.0 [1512.6 s] 	 train= 26.3188,310502.7812 valid= 0.4199,0.4641,0.6083,0.7475 test= 0.4268,0.4720,0.6151,0.7549 [565.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 25.7339, l2 = 32.8639, 0.0000
+INFO:root:
+INFO:root:Epoch   6.0 [1269.1 s] 	 train= 25.7339,328639.0000 valid= 0.4281,0.4722,0.6163,0.7533 test= 0.4329,0.4774,0.6233,0.7598 [528.2 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 25.3836, l2 = 33.9780, 0.0000
+INFO:root:
+INFO:root:Epoch   7.0 [1412.9 s] 	 train= 25.3836,339780.0000 valid= 0.4318,0.4765,0.6231,0.7646 test= 0.4358,0.4821,0.6257,0.7669 [549.1 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 24.9798, l2 = 35.0377, 0.0000
+INFO:root:
+INFO:root:Epoch   8.0 [1217.7 s] 	 train= 24.9798,350377.0938 valid= 0.4327,0.4783,0.6235,0.7645 test= 0.4358,0.4821,0.6253,0.7678 [501.1 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 24.7160, l2 = 35.7905, 0.0000
+INFO:root:
+INFO:root:Epoch   9.0 [1192.3 s] 	 train= 24.7160,357904.5938 valid= 0.4392,0.4851,0.6310,0.7736 test= 0.4469,0.4915,0.6332,0.7723 [469.0 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 24.4012, l2 = 36.3125, 0.0000
+INFO:root:
+INFO:root:Epoch  10.0 [1248.0 s] 	 train= 24.4012,363124.8125 valid= 0.4406,0.4869,0.6297,0.7725 test= 0.4438,0.4893,0.6351,0.7734 [518.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 24.3201, l2 = 37.0156, 0.0000
+INFO:root:
+INFO:root:Epoch  11.0 [1186.8 s] 	 train= 24.3201,370155.7812 valid= 0.4377,0.4817,0.6284,0.7657 test= 0.4419,0.4873,0.6328,0.7707 [472.1 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 24.1627, l2 = 37.5237, 0.0000
+INFO:root:
+INFO:root:Epoch  12.0 [1177.5 s] 	 train= 24.1627,375237.1250 valid= 0.4447,0.4887,0.6334,0.7693 test= 0.4509,0.4958,0.6414,0.7793 [458.2 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.9766, l2 = 37.8051, 0.0000
+INFO:root:
+INFO:root:Epoch  13.0 [1152.1 s] 	 train= 23.9766,378051.1250 valid= 0.4443,0.4874,0.6324,0.7666 test= 0.4490,0.4934,0.6396,0.7777 [428.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.8369, l2 = 38.4064, 0.0000
+INFO:root:
+INFO:root:Epoch  14.0 [1159.9 s] 	 train= 23.8369,384064.0625 valid= 0.4441,0.4882,0.6325,0.7676 test= 0.4543,0.4980,0.6441,0.7771 [442.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.7935, l2 = 38.7479, 0.0000
+INFO:root:
+INFO:root:Epoch  15.0 [1246.7 s] 	 train= 23.7935,387479.3125 valid= 0.4456,0.4902,0.6378,0.7769 test= 0.4560,0.5005,0.6479,0.7835 [525.0 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.6075, l2 = 39.0942, 0.0000
+INFO:root:
+INFO:root:Epoch  16.0 [1239.2 s] 	 train= 23.6075,390942.0938 valid= 0.4422,0.4869,0.6312,0.7693 test= 0.4511,0.4953,0.6420,0.7768 [519.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.5530, l2 = 39.2951, 0.0000
+INFO:root:
+INFO:root:Epoch  17.0 [1231.4 s] 	 train= 23.5530,392950.5625 valid= 0.4509,0.4934,0.6451,0.7750 test= 0.4560,0.5000,0.6476,0.7802 [515.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.4585, l2 = 39.4399, 0.0000
+INFO:root:
+INFO:root:Epoch  18.0 [1243.9 s] 	 train= 23.4585,394399.0938 valid= 0.4438,0.4885,0.6358,0.7732 test= 0.4513,0.4958,0.6461,0.7798 [522.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.3188, l2 = 39.5995, 0.0000
+INFO:root:
+INFO:root:Epoch  19.0 [1230.9 s] 	 train= 23.3188,395995.1250 valid= 0.4480,0.4910,0.6352,0.7685 test= 0.4547,0.4980,0.6420,0.7728 [511.1 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.3358, l2 = 39.9177, 0.0000
+INFO:root:
+INFO:root:Epoch  20.0 [1121.3 s] 	 train= 23.3358,399176.7500 valid= 0.4455,0.4895,0.6371,0.7721 test= 0.4539,0.4980,0.6419,0.7773 [407.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.2383, l2 = 39.9797, 0.0000
+INFO:root:
+INFO:root:Epoch  21.0 [1191.5 s] 	 train= 23.2383,399797.2500 valid= 0.4501,0.4930,0.6410,0.7761 test= 0.4534,0.4987,0.6441,0.7820 [469.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.2521, l2 = 40.0699, 0.0000
+INFO:root:
+INFO:root:Epoch  22.0 [1209.7 s] 	 train= 23.2521,400698.9688 valid= 0.4508,0.4953,0.6411,0.7792 test= 0.4533,0.4982,0.6438,0.7803 [487.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.1529, l2 = 40.1135, 0.0000
+INFO:root:
+INFO:root:Epoch  23.0 [1230.5 s] 	 train= 23.1529,401134.8125 valid= 0.4546,0.4979,0.6454,0.7793 test= 0.4577,0.5017,0.6459,0.7793 [518.1 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.1041, l2 = 40.2507, 0.0000
+INFO:root:
+INFO:root:Epoch  24.0 [1147.5 s] 	 train= 23.1041,402507.0938 valid= 0.4496,0.4945,0.6378,0.7772 test= 0.4537,0.4988,0.6411,0.7795 [424.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.0560, l2 = 40.6381, 0.0000
+INFO:root:
+INFO:root:Epoch  25.0 [1323.1 s] 	 train= 23.0560,406380.8438 valid= 0.4537,0.4969,0.6460,0.7801 test= 0.4579,0.5017,0.6500,0.7826 [526.4 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.9759, l2 = 40.9187, 0.0000
+INFO:root:
+INFO:root:Epoch  26.0 [1148.2 s] 	 train= 22.9759,409187.3438 valid= 0.4522,0.4953,0.6422,0.7751 test= 0.4538,0.4990,0.6383,0.7769 [472.7 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 23.0043, l2 = 41.0829, 0.0000
+INFO:root:
+INFO:root:Epoch  27.0 [1106.7 s] 	 train= 23.0043,410829.3125 valid= 0.4559,0.4979,0.6504,0.7804 test= 0.4603,0.5045,0.6522,0.7867 [436.4 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.8956, l2 = 41.2259, 0.0000
+INFO:root:
+INFO:root:Epoch  28.0 [1143.9 s] 	 train= 22.8956,412258.7188 valid= 0.4571,0.5002,0.6476,0.7799 test= 0.4623,0.5054,0.6522,0.7825 [465.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.9115, l2 = 41.4437, 0.0000
+INFO:root:
+INFO:root:Epoch  29.0 [1106.3 s] 	 train= 22.9115,414437.3125 valid= 0.4530,0.4975,0.6434,0.7806 test= 0.4608,0.5058,0.6507,0.7875 [426.7 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.6844, l2 = 41.4549, 0.0000
+INFO:root:
+INFO:root:Epoch  30.0 [1128.0 s] 	 train= 22.6844,414548.8125 valid= 0.4538,0.4983,0.6419,0.7801 test= 0.4629,0.5064,0.6565,0.7869 [456.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.7415, l2 = 41.3084, 0.0000
+INFO:root:
+INFO:root:Epoch  31.0 [1133.0 s] 	 train= 22.7415,413083.8750 valid= 0.4536,0.4977,0.6424,0.7784 test= 0.4622,0.5059,0.6532,0.7858 [456.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.7283, l2 = 41.4856, 0.0000
+INFO:root:
+INFO:root:Epoch  32.0 [1141.1 s] 	 train= 22.7283,414855.5938 valid= 0.4564,0.4985,0.6489,0.7770 test= 0.4606,0.5054,0.6508,0.7858 [465.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.6443, l2 = 41.5562, 0.0000
+INFO:root:
+INFO:root:Epoch  33.0 [1105.0 s] 	 train= 22.6443,415562.2812 valid= 0.4567,0.4993,0.6515,0.7806 test= 0.4635,0.5078,0.6532,0.7864 [431.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.6616, l2 = 41.4591, 0.0000
+INFO:root:
+INFO:root:Epoch  34.0 [1093.3 s] 	 train= 22.6616,414590.6562 valid= 0.4517,0.4969,0.6454,0.7840 test= 0.4566,0.5005,0.6477,0.7802 [413.7 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.5516, l2 = 41.4000, 0.0000
+INFO:root:
+INFO:root:Epoch  35.0 [1136.8 s] 	 train= 22.5516,414000.3125 valid= 0.4574,0.5010,0.6493,0.7827 test= 0.4604,0.5044,0.6514,0.7864 [463.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.6201, l2 = 41.7583, 0.0000
+INFO:root:
+INFO:root:Epoch  36.0 [1142.5 s] 	 train= 22.6201,417583.1875 valid= 0.4538,0.4990,0.6441,0.7842 test= 0.4589,0.5016,0.6493,0.7793 [470.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.6043, l2 = 41.8868, 0.0000
+INFO:root:
+INFO:root:Epoch  37.0 [1112.4 s] 	 train= 22.6043,418868.0625 valid= 0.4529,0.4972,0.6411,0.7775 test= 0.4583,0.5017,0.6489,0.7820 [436.0 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.5268, l2 = 41.8292, 0.0000
+INFO:root:
+INFO:root:Epoch  38.0 [1130.8 s] 	 train= 22.5268,418292.4375 valid= 0.4601,0.5034,0.6483,0.7824 test= 0.4661,0.5086,0.6581,0.7838 [461.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.6073, l2 = 41.8716, 0.0000
+INFO:root:
+INFO:root:Epoch  39.0 [1142.5 s] 	 train= 22.6073,418716.4375 valid= 0.4542,0.4982,0.6441,0.7797 test= 0.4630,0.5068,0.6554,0.7871 [470.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.4420, l2 = 41.8924, 0.0000
+INFO:root:
+INFO:root:Epoch  40.0 [1141.5 s] 	 train= 22.4420,418924.4062 valid= 0.4533,0.4962,0.6462,0.7769 test= 0.4606,0.5043,0.6520,0.7849 [470.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.4410, l2 = 42.1314, 0.0000
+INFO:root:
+INFO:root:Epoch  41.0 [1097.2 s] 	 train= 22.4410,421314.1250 valid= 0.4562,0.5012,0.6488,0.7853 test= 0.4618,0.5077,0.6543,0.7928 [425.2 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.4343, l2 = 42.2017, 0.0000
+INFO:root:
+INFO:root:Epoch  42.0 [1141.1 s] 	 train= 22.4343,422016.7188 valid= 0.4521,0.4951,0.6471,0.7792 test= 0.4579,0.5032,0.6489,0.7867 [466.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.4183, l2 = 42.2016, 0.0000
+INFO:root:
+INFO:root:Epoch  43.0 [1110.4 s] 	 train= 22.4183,422015.6875 valid= 0.4555,0.4985,0.6491,0.7808 test= 0.4675,0.5107,0.6548,0.7854 [439.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.3893, l2 = 42.2501, 0.0000
+INFO:root:
+INFO:root:Epoch  44.0 [1079.5 s] 	 train= 22.3893,422500.5000 valid= 0.4515,0.4941,0.6460,0.7774 test= 0.4596,0.5046,0.6518,0.7854 [409.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.3027, l2 = 42.5856, 0.0000
+INFO:root:
+INFO:root:Epoch  45.0 [1071.1 s] 	 train= 22.3027,425856.3125 valid= 0.4548,0.4990,0.6439,0.7801 test= 0.4645,0.5089,0.6531,0.7873 [401.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.3963, l2 = 42.4856, 0.0000
+INFO:root:
+INFO:root:Epoch  46.0 [1116.8 s] 	 train= 22.3963,424856.1875 valid= 0.4553,0.4987,0.6460,0.7795 test= 0.4628,0.5070,0.6540,0.7877 [445.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.3737, l2 = 42.3137, 0.0000
+INFO:root:
+INFO:root:Epoch  47.0 [1126.1 s] 	 train= 22.3737,423137.0312 valid= 0.4543,0.4983,0.6466,0.7817 test= 0.4620,0.5049,0.6523,0.7811 [459.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.3207, l2 = 42.3445, 0.0000
+INFO:root:
+INFO:root:Epoch  48.0 [1107.9 s] 	 train= 22.3207,423445.4062 valid= 0.4548,0.4978,0.6448,0.7768 test= 0.4569,0.5040,0.6455,0.7896 [437.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.2382, l2 = 42.1478, 0.0000
+INFO:root:
+INFO:root:Epoch  49.0 [1131.5 s] 	 train= 22.2382,421478.0938 valid= 0.4528,0.4967,0.6441,0.7794 test= 0.4587,0.5034,0.6474,0.7840 [460.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.2148, l2 = 42.2812, 0.0000
+INFO:root:
+INFO:root:Epoch  50.0 [1024.4 s] 	 train= 22.2148,422812.1562 valid= 0.4555,0.4989,0.6477,0.7831 test= 0.4621,0.5069,0.6535,0.7876 [353.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.3560, l2 = 42.2639, 0.0000
+INFO:root:
+INFO:root:Epoch  51.0 [1145.2 s] 	 train= 22.3560,422639.3438 valid= 0.4541,0.4994,0.6472,0.7853 test= 0.4609,0.5057,0.6535,0.7884 [474.0 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.1869, l2 = 42.2609, 0.0000
+INFO:root:
+INFO:root:Epoch  52.0 [1086.9 s] 	 train= 22.1869,422608.9688 valid= 0.4540,0.4970,0.6467,0.7765 test= 0.4641,0.5079,0.6550,0.7856 [421.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.2407, l2 = 42.3755, 0.0000
+INFO:root:
+INFO:root:Epoch  53.0 [1133.8 s] 	 train= 22.2407,423754.9688 valid= 0.4558,0.5001,0.6475,0.7829 test= 0.4630,0.5065,0.6567,0.7879 [460.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.1766, l2 = 42.4918, 0.0000
+INFO:root:
+INFO:root:Epoch  54.0 [1139.3 s] 	 train= 22.1766,424917.7812 valid= 0.4485,0.4930,0.6409,0.7777 test= 0.4576,0.5031,0.6476,0.7849 [471.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.1819, l2 = 42.5379, 0.0000
+INFO:root:
+INFO:root:Epoch  55.0 [1141.4 s] 	 train= 22.1819,425379.2812 valid= 0.4556,0.4986,0.6467,0.7792 test= 0.4642,0.5074,0.6550,0.7857 [470.1 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.1349, l2 = 42.6804, 0.0000
+INFO:root:
+INFO:root:Epoch  56.0 [1059.0 s] 	 train= 22.1349,426804.3750 valid= 0.4592,0.5025,0.6537,0.7864 test= 0.4604,0.5057,0.6526,0.7903 [390.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.0596, l2 = 42.6414, 0.0000
+INFO:root:
+INFO:root:Epoch  57.0 [1083.7 s] 	 train= 22.0596,426413.9375 valid= 0.4489,0.4936,0.6410,0.7778 test= 0.4576,0.5016,0.6486,0.7819 [416.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.2772, l2 = 42.8027, 0.0000
+INFO:root:
+INFO:root:Epoch  58.0 [1074.1 s] 	 train= 22.2772,428027.3750 valid= 0.4541,0.4965,0.6465,0.7787 test= 0.4616,0.5062,0.6505,0.7860 [408.0 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.0350, l2 = 43.1273, 0.0000
+INFO:root:
+INFO:root:Epoch  59.0 [1073.1 s] 	 train= 22.0350,431272.8438 valid= 0.4585,0.5018,0.6521,0.7852 test= 0.4678,0.5125,0.6567,0.7915 [398.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.0208, l2 = 43.2201, 0.0000
+INFO:root:
+INFO:root:Epoch  60.0 [1119.4 s] 	 train= 22.0208,432201.3438 valid= 0.4524,0.4970,0.6450,0.7812 test= 0.4618,0.5066,0.6541,0.7873 [436.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.0723, l2 = 43.1724, 0.0000
+INFO:root:
+INFO:root:Epoch  61.0 [1105.8 s] 	 train= 22.0723,431724.3750 valid= 0.4578,0.5022,0.6491,0.7839 test= 0.4648,0.5096,0.6573,0.7919 [430.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9727, l2 = 43.3169, 0.0000
+INFO:root:
+INFO:root:Epoch  62.0 [1125.4 s] 	 train= 21.9727,433169.3438 valid= 0.4507,0.4949,0.6392,0.7751 test= 0.4622,0.5047,0.6510,0.7780 [443.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.0522, l2 = 43.1991, 0.0000
+INFO:root:
+INFO:root:Epoch  63.0 [1165.9 s] 	 train= 22.0522,431990.6250 valid= 0.4541,0.4993,0.6447,0.7826 test= 0.4635,0.5071,0.6548,0.7872 [474.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.0645, l2 = 43.0524, 0.0000
+INFO:root:
+INFO:root:Epoch  64.0 [1149.1 s] 	 train= 22.0645,430523.6250 valid= 0.4477,0.4918,0.6352,0.7734 test= 0.4594,0.5026,0.6477,0.7791 [473.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9965, l2 = 43.0966, 0.0000
+INFO:root:
+INFO:root:Epoch  65.0 [1107.9 s] 	 train= 21.9965,430966.3750 valid= 0.4489,0.4940,0.6398,0.7793 test= 0.4567,0.5013,0.6489,0.7844 [429.2 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.0747, l2 = 43.2747, 0.0000
+INFO:root:
+INFO:root:Epoch  66.0 [1118.9 s] 	 train= 22.0747,432746.5312 valid= 0.4546,0.4991,0.6464,0.7830 test= 0.4631,0.5073,0.6547,0.7869 [439.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9780, l2 = 43.3329, 0.0000
+INFO:root:
+INFO:root:Epoch  67.0 [1161.8 s] 	 train= 21.9780,433328.5938 valid= 0.4538,0.4985,0.6443,0.7823 test= 0.4625,0.5075,0.6528,0.7884 [468.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9880, l2 = 43.4478, 0.0000
+INFO:root:
+INFO:root:Epoch  68.0 [1129.5 s] 	 train= 21.9880,434478.4375 valid= 0.4558,0.4996,0.6437,0.7801 test= 0.4626,0.5062,0.6509,0.7834 [446.0 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9839, l2 = 43.4971, 0.0000
+INFO:root:
+INFO:root:Epoch  69.0 [1033.1 s] 	 train= 21.9839,434971.2500 valid= 0.4566,0.4989,0.6502,0.7793 test= 0.4648,0.5071,0.6580,0.7854 [352.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 22.0129, l2 = 43.5460, 0.0000
+INFO:root:
+INFO:root:Epoch  70.0 [1145.3 s] 	 train= 22.0129,435460.2812 valid= 0.4537,0.4967,0.6434,0.7769 test= 0.4634,0.5058,0.6520,0.7821 [470.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8464, l2 = 43.7218, 0.0000
+INFO:root:
+INFO:root:Epoch  71.0 [1133.5 s] 	 train= 21.8464,437217.8750 valid= 0.4630,0.5070,0.6550,0.7888 test= 0.4719,0.5147,0.6637,0.7906 [461.7 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Save model to ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9847, l2 = 43.6533, 0.0000
+INFO:root:
+INFO:root:Epoch  72.0 [1212.0 s] 	 train= 21.9847,436533.2188 valid= 0.4516,0.4958,0.6419,0.7777 test= 0.4583,0.5027,0.6456,0.7801 [487.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8826, l2 = 43.5506, 0.0000
+INFO:root:
+INFO:root:Epoch  73.0 [1207.6 s] 	 train= 21.8826,435506.0625 valid= 0.4531,0.4975,0.6479,0.7839 test= 0.4630,0.5063,0.6506,0.7842 [487.4 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9469, l2 = 43.6693, 0.0000
+INFO:root:
+INFO:root:Epoch  74.0 [1204.1 s] 	 train= 21.9469,436693.3125 valid= 0.4533,0.4960,0.6454,0.7754 test= 0.4607,0.5044,0.6484,0.7812 [480.0 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8932, l2 = 43.4818, 0.0000
+INFO:root:
+INFO:root:Epoch  75.0 [1206.2 s] 	 train= 21.8932,434818.2188 valid= 0.4524,0.4969,0.6430,0.7784 test= 0.4592,0.5031,0.6478,0.7804 [491.1 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8962, l2 = 43.5915, 0.0000
+INFO:root:
+INFO:root:Epoch  76.0 [1190.5 s] 	 train= 21.8962,435915.0625 valid= 0.4535,0.4967,0.6482,0.7776 test= 0.4616,0.5047,0.6514,0.7825 [462.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8507, l2 = 43.7071, 0.0000
+INFO:root:
+INFO:root:Epoch  77.0 [1185.0 s] 	 train= 21.8507,437071.0312 valid= 0.4448,0.4872,0.6323,0.7643 test= 0.4555,0.4974,0.6440,0.7717 [456.2 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9397, l2 = 43.6611, 0.0000
+INFO:root:
+INFO:root:Epoch  78.0 [1144.7 s] 	 train= 21.9397,436611.2500 valid= 0.4543,0.4970,0.6460,0.7752 test= 0.4601,0.5047,0.6448,0.7812 [418.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8723, l2 = 43.5963, 0.0000
+INFO:root:
+INFO:root:Epoch  79.0 [1198.1 s] 	 train= 21.8723,435963.1562 valid= 0.4493,0.4922,0.6404,0.7746 test= 0.4548,0.4987,0.6426,0.7770 [472.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9028, l2 = 43.6317, 0.0000
+INFO:root:
+INFO:root:Epoch  80.0 [1210.6 s] 	 train= 21.9028,436316.7188 valid= 0.4586,0.5022,0.6470,0.7815 test= 0.4683,0.5115,0.6587,0.7888 [491.2 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9201, l2 = 43.6549, 0.0000
+INFO:root:
+INFO:root:Epoch  81.0 [1216.6 s] 	 train= 21.9201,436549.0625 valid= 0.4552,0.4987,0.6448,0.7776 test= 0.4644,0.5073,0.6528,0.7824 [489.7 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8037, l2 = 43.5809, 0.0000
+INFO:root:
+INFO:root:Epoch  82.0 [1159.2 s] 	 train= 21.8037,435809.1250 valid= 0.4565,0.4996,0.6484,0.7812 test= 0.4622,0.5067,0.6524,0.7867 [434.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.7698, l2 = 43.6178, 0.0000
+INFO:root:
+INFO:root:Epoch  83.0 [1239.5 s] 	 train= 21.7698,436177.8125 valid= 0.4533,0.4985,0.6432,0.7810 test= 0.4637,0.5087,0.6496,0.7854 [491.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8877, l2 = 43.7729, 0.0000
+INFO:root:
+INFO:root:Epoch  84.0 [1231.2 s] 	 train= 21.8877,437729.2812 valid= 0.4599,0.5040,0.6493,0.7830 test= 0.4656,0.5100,0.6544,0.7890 [495.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.7786, l2 = 43.7965, 0.0000
+INFO:root:
+INFO:root:Epoch  85.0 [1259.4 s] 	 train= 21.7786,437964.8125 valid= 0.4571,0.5007,0.6459,0.7812 test= 0.4680,0.5121,0.6570,0.7914 [519.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8156, l2 = 43.7845, 0.0000
+INFO:root:
+INFO:root:Epoch  86.0 [1251.2 s] 	 train= 21.8156,437845.3125 valid= 0.4611,0.5037,0.6521,0.7810 test= 0.4655,0.5100,0.6554,0.7901 [497.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8436, l2 = 43.4743, 0.0000
+INFO:root:
+INFO:root:Epoch  87.0 [1169.9 s] 	 train= 21.8436,434742.7188 valid= 0.4538,0.4979,0.6430,0.7795 test= 0.4605,0.5056,0.6472,0.7827 [427.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8290, l2 = 43.4520, 0.0000
+INFO:root:
+INFO:root:Epoch  88.0 [1225.8 s] 	 train= 21.8290,434520.0625 valid= 0.4488,0.4921,0.6393,0.7728 test= 0.4553,0.4988,0.6446,0.7776 [480.0 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.7976, l2 = 43.6230, 0.0000
+INFO:root:
+INFO:root:Epoch  89.0 [1199.6 s] 	 train= 21.7976,436229.9375 valid= 0.4566,0.4997,0.6433,0.7774 test= 0.4612,0.5057,0.6480,0.7838 [465.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8063, l2 = 43.7031, 0.0000
+INFO:root:
+INFO:root:Epoch  90.0 [1167.3 s] 	 train= 21.8063,437031.0938 valid= 0.4539,0.4972,0.6466,0.7791 test= 0.4632,0.5072,0.6540,0.7860 [434.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.7917, l2 = 43.6991, 0.0000
+INFO:root:
+INFO:root:Epoch  91.0 [1241.3 s] 	 train= 21.7917,436991.3750 valid= 0.4544,0.4978,0.6458,0.7798 test= 0.4576,0.5042,0.6452,0.7887 [501.3 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.7698, l2 = 43.7657, 0.0000
+INFO:root:
+INFO:root:Epoch  92.0 [1255.8 s] 	 train= 21.7698,437657.4375 valid= 0.4530,0.4974,0.6427,0.7784 test= 0.4629,0.5063,0.6505,0.7813 [522.4 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8227, l2 = 43.9013, 0.0000
+INFO:root:
+INFO:root:Epoch  93.0 [1530.5 s] 	 train= 21.8227,439013.4375 valid= 0.4529,0.4980,0.6420,0.7789 test= 0.4649,0.5092,0.6534,0.7884 [790.4 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8317, l2 = 43.9367, 0.0000
+INFO:root:
+INFO:root:Epoch  94.0 [1396.8 s] 	 train= 21.8317,439366.8125 valid= 0.4594,0.5035,0.6496,0.7849 test= 0.4726,0.5155,0.6603,0.7899 [654.5 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.9065, l2 = 43.8212, 0.0000
+INFO:root:
+INFO:root:Epoch  95.0 [1379.2 s] 	 train= 21.9065,438211.7812 valid= 0.4535,0.4988,0.6437,0.7832 test= 0.4619,0.5064,0.6480,0.7838 [634.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.7666, l2 = 44.0563, 0.0000
+INFO:root:
+INFO:root:Epoch  96.0 [1312.7 s] 	 train= 21.7666,440563.3125 valid= 0.4508,0.4945,0.6422,0.7791 test= 0.4585,0.5024,0.6459,0.7793 [576.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8138, l2 = 44.0598, 0.0000
+INFO:root:
+INFO:root:Epoch  97.0 [1251.8 s] 	 train= 21.8138,440598.4062 valid= 0.4589,0.5030,0.6476,0.7823 test= 0.4653,0.5093,0.6528,0.7861 [503.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.6719, l2 = 43.9036, 0.0000
+INFO:root:
+INFO:root:Epoch  98.0 [1260.1 s] 	 train= 21.6719,439036.4688 valid= 0.4500,0.4936,0.6362,0.7721 test= 0.4554,0.5001,0.6416,0.7789 [516.2 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.6764, l2 = 44.0183, 0.0000
+INFO:root:
+INFO:root:Epoch  99.0 [1748.5 s] 	 train= 21.6764,440183.3438 valid= 0.4509,0.4955,0.6385,0.7758 test= 0.4592,0.5031,0.6448,0.7799 [996.6 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 21.8101, l2 = 43.9491, 0.0000
+INFO:root:
+INFO:root:Epoch 100.0 [1431.3 s] 	 train= 21.8101,439490.5938 valid= 0.4527,0.4982,0.6427,0.7828 test= 0.4657,0.5098,0.6547,0.7898 [702.9 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:Load model from ../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt
+INFO:root:
+INFO:root:Best Iter(validation)=  71.0 	 train= 21.8464,437217.8750 valid= 0.4630,0.5070,0.6550,0.7888 test= 0.4719,0.5147,0.6637,0.7906 [120830.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+INFO:root:Best Iter(test)=  94.0 	 train= 21.8317,439366.8125 valid= 0.4594,0.5035,0.6496,0.7849 test= 0.4726,0.5155,0.6603,0.7899 [120830.8 s] 	 ndcg@5,ndcg@10,hit@5,hit@10
+INFO:root:
+Save Results to ../result/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pk
+INFO:root:
+Test After Training on Train: ndcg@1=0.9449, ndcg@5=0.9719, ndcg@10=0.9759, ndcg@20=0.9763, ndcg@50=-1, ndcg@100=-1, hit@1=0.9449, hit@5=1.0000, hit@10=1.0000, hit@20=1.0000, hit@50=1.0000, hit@100=1.0000, precision@1=0.9449, precision@5=0.5294, precision@10=0.5037, precision@20=0.5000, precision@50=0.5000, precision@100=0.5000, recall@1=0.7802, recall@5=0.9873, recall@10=0.9993, recall@20=1.0000, recall@50=1.0000, recall@100=1.0000
+
+INFO:root:
+Test After Training on Valid: ndcg@1=0.3632, ndcg@5=0.4630, ndcg@10=0.5070, ndcg@20=0.5421, ndcg@50=0.5716, ndcg@100=0.5822, hit@1=0.3632, hit@5=0.6550, hit@10=0.7888, hit@20=0.8939, hit@50=0.9735, hit@100=0.9986, precision@1=0.3632, precision@5=0.1428, precision@10=0.0918, precision@20=0.0570, precision@50=0.0279, precision@100=0.0152, recall@1=0.3056, recall@5=0.5634, recall@10=0.6872, recall@20=0.8059, recall@50=0.9266, recall@100=0.9778
+
+INFO:root:
+Test After Training on Test: ndcg@1=0.3712, ndcg@5=0.4719, ndcg@10=0.5147, ndcg@20=0.5494, ndcg@50=0.5778, ndcg@100=0.5878, hit@1=0.3712, hit@5=0.6637, hit@10=0.7906, hit@20=0.8979, hit@50=0.9746, hit@100=0.9996, precision@1=0.3712, precision@5=0.1451, precision@10=0.0922, precision@20=0.0569, precision@50=0.0277, precision@100=0.0150, recall@1=0.3110, recall@5=0.5763, recall@10=0.6963, recall@20=0.8140, recall@50=0.9308, recall@100=0.9796
+
+INFO:root:# of params: 32087424
+INFO:root:{'gpu': '3', 'verbose': 20, 'log_file': '../log/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.txt', 'result_file': '../result/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pk', 'random_seed': 2020, 'train': 1, 'debugging': 0, 'save_res': 1, 'rank': 1, 'regenerate': 0, 'unlabel_test': 0, 'dict_size': 500000, 'sent_max': 10, 'topic_head': 0, 'tag_head': 0, 'entity_tail': 1, 'keyword_head': 1, 'graph_wn': 100, 'graph_tn': 2, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 1, 'drop_no_his': 1, 'drop_neg': 1, 'path': '../dataset/', 'dataset': 'sogou', 'label': 'label', 'w2v_size': 64, 'att_size': 32, 'cs_ratio': 0.1, 'cf': 0, 'layer_norm': 1, 'item_query': 1, 'his_rnn': 1, 'u_vector_size': 64, 'i_vector_size': 64, 'loss_sum': 1, 'model_path': '../model/WG4RecSogou/11_WG4RecSogou_sogou_2020_all0_att32_bat128_cf0_csr0.1_dro1_dro1_dro0.2_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.0001_l2b0_l2s0.0_lay1_los1_lr0.001_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam100_sam1.0_sen10_spa0_tag.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'check_train': 0, 'early_stop': 1, 'es_worse': 10, 'es_long': 40, 'lr': 0.001, 'batch_size': 128, 'eval_batch_size': 32, 'dropout': 0.2, 'l2_bias': 0, 'l2': 0.0001, 'l2s': 0.0, 'grad_clip_n': 10, 'grad_clip_v': 10, 'optimizer': 'Adam', 'metrics': 'ndcg@5,ndcg@10,hit@5,hit@10', 'pre_gpu': 0, 'num_workers': 16, 'gc_batch': 0, 'gc': 0, 'pin_memory': 1, 'graph_l': 1, 'graph_sample': 1, 'word_wn': 10, 'word_tn': 1, 'nb_type': 0, 'nb_topic': 0, 'sparse_his': 0, 'test_sample_n': 99, 'train_sample_n': 1, 'sample_un_p': 1.0, 'sample_pop': 100, 'sample_given_p': 0.3, 'buffer_dp': 0}
+INFO:root:2021-11-26 06:21:12

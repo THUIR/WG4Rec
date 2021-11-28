@@ -1,0 +1,709 @@
+INFO:root:--------------------------------------------- BEGIN: 2021-11-25 19:43:34 ---------------------------------------------
+INFO:root:
+========================================
+ Arguments       | Values               
+========================================
+ all_his         | 0                   
+ att_size        | 32                  
+ batch_size      | 128                 
+ buffer_dp       | 0                   
+ cf              | 1                   
+ check_epoch     | 1                   
+ check_train     | 0                   
+ cs_ratio        | 0.1                 
+ dataset         | adressa-1w          
+ debugging       | 0                   
+ dict_size       | 500000              
+ drop_neg        | 1                   
+ drop_no_his     | 1                   
+ dropout         | 0.5                 
+ early_stop      | 1                   
+ entity_tail     | 1                   
+ epoch           | 100                 
+ es_long         | 40                  
+ es_worse        | 10                  
+ eval_batch_size | 32                  
+ gc              | 0                   
+ gc_batch        | 0                   
+ gpu             | 0                   
+ grad_clip_n     | 10                  
+ grad_clip_v     | 10                  
+ graph_l         | 1                   
+ graph_sample    | 1                   
+ graph_tn        | 2                   
+ graph_wn        | 100                 
+ his_rnn         | 1                   
+ i_vector_size   | 64                  
+ item_query      | 1                   
+ keyword_head    | 1                   
+ l2              | 0.01                
+ l2_bias         | 1                   
+ l2s             | 0.0                 
+ label           | label               
+ layer_norm      | 1                   
+ load            | 0                   
+ log_file        | ../log/WG4RecAdre...
+ loss_f          | cr                  
+ loss_sum        | 1                   
+ lr              | 1e-06               
+ max_his         | 10                  
+ metrics         | auc                 
+ model_path      | ../model/WG4RecAd...
+ nb_topic        | 0                   
+ nb_type         | 0                   
+ neg_column      | 1                   
+ neg_his         | 1                   
+ num_workers     | 16                  
+ optimizer       | Adam                
+ path            | ../dataset/         
+ pin_memory      | 1                   
+ pre_gpu         | 0                   
+ random_seed     | 2020                
+ rank            | 1                   
+ regenerate      | 0                   
+ result_file     | ../result/WG4RecA...
+ sample_given_p  | 0.3                 
+ sample_pop      | 10                  
+ sample_un_p     | 1.0                 
+ save_res        | 1                   
+ sent_max        | 50                  
+ sparse_his      | 0                   
+ tag_head        | 0                   
+ test_sample_n   | 1                   
+ topic_head      | 0                   
+ train           | 1                   
+ train_sample_n  | 1                   
+ u_vector_size   | 64                  
+ unlabel_test    | 0                   
+ verbose         | 20                  
+ w2v_size        | 64                  
+ word_tn         | 1                   
+ word_wn         | 10                  
+========================================
+INFO:root:DataReader: WG4RecDR
+INFO:root:Model: WG4RecAdressa
+INFO:root:Runner: BaseRunner
+INFO:root:DataProcessor: AdressaDP
+INFO:root:# cuda devices: 1
+INFO:root:
+WG4RecDR: 
+============================
+ Arguments    | Values      
+============================
+ all_his      | 0          
+ dataset      | adressa-1w 
+ dict_size    | 500000     
+ drop_no_his  | 1          
+ entity_tail  | 1          
+ graph_tn     | 2          
+ graph_wn     | 100        
+ keyword_head | 1          
+ label        | label      
+ max_his      | 10         
+ neg_column   | 1          
+ neg_his      | 1          
+ path         | ../dataset/
+ regenerate   | 0          
+ sent_max     | 50         
+ tag_head     | 0          
+ topic_head   | 0          
+============================
+INFO:root:load train csv...
+INFO:root:size of train: 2373552
+INFO:root:train label: {1: 2373552}
+INFO:root:load validation csv...
+INFO:root:size of validation: 27043
+INFO:root:validation label: {1: 27043}
+INFO:root:load test csv...
+INFO:root:size of test: 244950
+INFO:root:test label: {1: 244950}
+INFO:root:load history csv...
+INFO:root:load dictionary csv...
+INFO:root:load doc text...
+INFO:root:load url text...
+INFO:root:load word graph...
+INFO:root:word graph: ['w2v_sim', 'word_co', 'word_cf']
+INFO:root:# of users: 610906
+INFO:root:# of items: 14733
+INFO:root:# of user features: 0
+INFO:root:# of item features: 0
+INFO:root:# of context features: 0
+INFO:root:# of features: 0
+INFO:root:data columns: ['uid', 'iid', 'time']
+INFO:root:Append history...
+INFO:root:Drop samples with no history...
+INFO:root:size of train: 1799470
+INFO:root:size of validation: 23350
+INFO:root:size of test: 211820
+INFO:root:Transform label to 0-1
+INFO:root:train label: {1: 1799470}
+INFO:root:validation label: {1: 23350}
+INFO:root:test label: {1: 211820}
+INFO:root:Drop Neg Samples...
+INFO:root:size of train: 1799470
+INFO:root:size of validation: 23350
+INFO:root:size of test: 211820
+INFO:root:Saving corpus to ../dataset/adressa-1w/buffer/11_WG4RecDR_all0_dro1_ent1_gra2_gra100_key1_max10_neg1_neg1_sen50_tag0_top0.pk
+INFO:root:
+AdressaDP: 
+========================================
+ Arguments       | Values               
+========================================
+ batch_size      | 128                 
+ buffer_dp       | 0                   
+ data_reader     | <data_readers.WG4...
+ eval_batch_size | 32                  
+ graph_l         | 1                   
+ graph_sample    | 1                   
+ max_his         | 10                  
+ model_name      | <class 'models.WG...
+ nb_topic        | 0                   
+ nb_type         | 0                   
+ rank            | 1                   
+ sample_given_p  | 0.3                 
+ sample_pop      | 10                  
+ sample_un_p     | 1.0                 
+ sparse_his      | 0                   
+ test_sample_n   | 1                   
+ train_sample_n  | 1                   
+ word_tn         | 1                   
+ word_wn         | 10                  
+========================================
+INFO:root:load neg iids from ../dataset/adressa-1w/adressa-1w.validation_iids.csv
+INFO:root:load neg iids from ../dataset/adressa-1w/adressa-1w.test_iids.csv
+INFO:root:Model # of features 0
+INFO:root:Model # of feature dims 0
+INFO:root:
+WG4RecAdressa: 
+========================================
+ Arguments       | Values               
+========================================
+ att_size        | 32                  
+ cf              | 1                   
+ cs_ratio        | 0.1                 
+ dictionary_size | 116604              
+ feature_num     | 0                   
+ his_rnn         | 1                   
+ i_vector_size   | 64                  
+ item_num        | 14733               
+ item_query      | 1                   
+ l2_bias         | 1                   
+ label_max       | 1                   
+ label_min       | 0                   
+ layer_norm      | 1                   
+ loss_f          | cr                  
+ loss_sum        | 1                   
+ model_path      | ../model/WG4RecAd...
+ random_seed     | 2020                
+ u_vector_size   | 64                  
+ user_num        | 610906              
+ w2v_size        | 64                  
+========================================
+INFO:root:# of params: 47559744
+INFO:root:WG4RecAdressa(
+  (uid_embeddings): Embedding(610906, 64)
+  (iid_embeddings): Embedding(14733, 64)
+  (word_embeddings): Embedding(116604, 64)
+  (graph_att_q): Linear(in_features=64, out_features=32, bias=True)
+  (graph_att_k): Linear(in_features=64, out_features=32, bias=True)
+  (word_g_trans): Linear(in_features=128, out_features=64, bias=False)
+  (glayer_att_q): Linear(in_features=64, out_features=32, bias=True)
+  (glayer_att_k): Linear(in_features=64, out_features=32, bias=True)
+  (word_att_q): Linear(in_features=64, out_features=32, bias=True)
+  (word_att_k): Linear(in_features=64, out_features=32, bias=True)
+  (word2doc): Linear(in_features=64, out_features=64, bias=True)
+  (doc_att_query): Linear(in_features=64, out_features=32, bias=True)
+  (doc_att_key): Linear(in_features=64, out_features=32, bias=True)
+  (rnn): GRU(64, 64, batch_first=True, dropout=0.5)
+  (cf_att_query): Linear(in_features=32, out_features=1, bias=False)
+  (cf_att_key): Linear(in_features=64, out_features=32, bias=True)
+  (act): LeakyReLU(negative_slope=0.01)
+  (act_v): LeakyReLU(negative_slope=0.01)
+  (ui_layer_norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+)
+INFO:root:
+BaseRunner: 
+==========================
+ Arguments       | Values 
+==========================
+ batch_size      | 128   
+ check_epoch     | 1     
+ check_train     | 0     
+ dropout         | 0.5   
+ early_stop      | 1     
+ epoch           | 100   
+ es_long         | 40    
+ es_worse        | 10    
+ eval_batch_size | 32    
+ gc              | 0     
+ gc_batch        | 0     
+ grad_clip_n     | 10    
+ grad_clip_v     | 10    
+ l2              | 0.01  
+ l2_bias         | 1     
+ l2s             | 0.0   
+ lr              | 1e-06 
+ metrics         | auc   
+ num_workers     | 16    
+ optimizer       | Adam  
+ pin_memory      | 1     
+ pre_gpu         | 0     
+==========================
+INFO:root:Init: 	 train=  validation= 0.4582 test= 0.4596 [104.7 s] auc
+INFO:root:Optimizer: Adam
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 1848.0908, l2 = 334.5487, 0.0000
+INFO:root:
+INFO:root:Epoch   1.0 [1834.6 s] 	 train= 1848.0908,33454.8672 valid= 0.4687 test= 0.4711 [101.4 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 1319.6517, l2 = 284.5840, 0.0000
+INFO:root:
+INFO:root:Epoch   2.0 [1834.8 s] 	 train= 1319.6517,28458.3965 valid= 0.4739 test= 0.4761 [108.1 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 1135.1312, l2 = 252.0395, 0.0000
+INFO:root:
+INFO:root:Epoch   3.0 [1835.8 s] 	 train= 1135.1312,25203.9453 valid= 0.4867 test= 0.4878 [103.2 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 1012.4139, l2 = 227.2724, 0.0000
+INFO:root:
+INFO:root:Epoch   4.0 [1830.8 s] 	 train= 1012.4139,22727.2363 valid= 0.4961 test= 0.4976 [108.2 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 917.0469, l2 = 207.6060, 0.0000
+INFO:root:
+INFO:root:Epoch   5.0 [1836.0 s] 	 train= 917.0469,20760.5957 valid= 0.5154 test= 0.5187 [102.8 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 852.7517, l2 = 191.5992, 0.0000
+INFO:root:
+INFO:root:Epoch   6.0 [1841.2 s] 	 train= 852.7517,19159.9238 valid= 0.5353 test= 0.5380 [108.6 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 801.5562, l2 = 178.0297, 0.0000
+INFO:root:
+INFO:root:Epoch   7.0 [1841.9 s] 	 train= 801.5562,17802.9688 valid= 0.5513 test= 0.5528 [104.9 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 758.0645, l2 = 165.9970, 0.0000
+INFO:root:
+INFO:root:Epoch   8.0 [1867.3 s] 	 train= 758.0645,16599.6953 valid= 0.5492 test= 0.5510 [112.2 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 721.7997, l2 = 155.3067, 0.0000
+INFO:root:
+INFO:root:Epoch   9.0 [1855.9 s] 	 train= 721.7997,15530.6748 valid= 0.5596 test= 0.5607 [104.4 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 691.4083, l2 = 145.7058, 0.0000
+INFO:root:
+INFO:root:Epoch  10.0 [1864.1 s] 	 train= 691.4083,14570.5850 valid= 0.5793 test= 0.5812 [111.4 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 665.5379, l2 = 137.0537, 0.0000
+INFO:root:
+INFO:root:Epoch  11.0 [1848.9 s] 	 train= 665.5379,13705.3730 valid= 0.5941 test= 0.5949 [101.8 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 644.2735, l2 = 129.1817, 0.0000
+INFO:root:
+INFO:root:Epoch  12.0 [1872.3 s] 	 train= 644.2735,12918.1709 valid= 0.6228 test= 0.6233 [113.0 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 625.2241, l2 = 121.9322, 0.0000
+INFO:root:
+INFO:root:Epoch  13.0 [1863.5 s] 	 train= 625.2241,12193.2188 valid= 0.6477 test= 0.6464 [110.6 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 608.8899, l2 = 115.2232, 0.0000
+INFO:root:
+INFO:root:Epoch  14.0 [1867.9 s] 	 train= 608.8899,11522.3184 valid= 0.6362 test= 0.6348 [110.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 594.5353, l2 = 108.9832, 0.0000
+INFO:root:
+INFO:root:Epoch  15.0 [1846.5 s] 	 train= 594.5353,10898.3193 valid= 0.6564 test= 0.6538 [104.0 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 582.5795, l2 = 103.1908, 0.0000
+INFO:root:
+INFO:root:Epoch  16.0 [1848.8 s] 	 train= 582.5795,10319.0840 valid= 0.6940 test= 0.6900 [110.6 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 572.1252, l2 = 97.7264, 0.0000
+INFO:root:
+INFO:root:Epoch  17.0 [1859.6 s] 	 train= 572.1252,9772.6416 valid= 0.6846 test= 0.6821 [109.6 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 562.7085, l2 = 92.5901, 0.0000
+INFO:root:
+INFO:root:Epoch  18.0 [1842.7 s] 	 train= 562.7085,9259.0127 valid= 0.7067 test= 0.7056 [102.2 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 554.9158, l2 = 87.7693, 0.0000
+INFO:root:
+INFO:root:Epoch  19.0 [1842.7 s] 	 train= 554.9158,8776.9277 valid= 0.7346 test= 0.7324 [108.5 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 548.3519, l2 = 83.2720, 0.0000
+INFO:root:
+INFO:root:Epoch  20.0 [1869.9 s] 	 train= 548.3519,8327.1992 valid= 0.7254 test= 0.7240 [118.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 542.4490, l2 = 79.0334, 0.0000
+INFO:root:
+INFO:root:Epoch  21.0 [1811.7 s] 	 train= 542.4490,7903.3428 valid= 0.7124 test= 0.7098 [98.6 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 537.6177, l2 = 75.0722, 0.0000
+INFO:root:
+INFO:root:Epoch  22.0 [1773.0 s] 	 train= 537.6177,7507.2197 valid= 0.6813 test= 0.6790 [97.4 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 533.4033, l2 = 71.3255, 0.0000
+INFO:root:
+INFO:root:Epoch  23.0 [1777.9 s] 	 train= 533.4033,7132.5527 valid= 0.7419 test= 0.7401 [97.4 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 529.7224, l2 = 67.8495, 0.0000
+INFO:root:
+INFO:root:Epoch  24.0 [1771.1 s] 	 train= 529.7224,6784.9536 valid= 0.7707 test= 0.7671 [93.9 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 526.6113, l2 = 64.5275, 0.0000
+INFO:root:
+INFO:root:Epoch  25.0 [1772.0 s] 	 train= 526.6113,6452.7515 valid= 0.7241 test= 0.7207 [92.2 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 524.0238, l2 = 61.4552, 0.0000
+INFO:root:
+INFO:root:Epoch  26.0 [1776.6 s] 	 train= 524.0238,6145.5210 valid= 0.7506 test= 0.7485 [99.1 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 521.6173, l2 = 58.5539, 0.0000
+INFO:root:
+INFO:root:Epoch  27.0 [1760.4 s] 	 train= 521.6173,5855.3877 valid= 0.7293 test= 0.7263 [99.8 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 519.7267, l2 = 55.8388, 0.0000
+INFO:root:
+INFO:root:Epoch  28.0 [1768.9 s] 	 train= 519.7267,5583.8750 valid= 0.7200 test= 0.7167 [93.7 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 517.9619, l2 = 53.2438, 0.0000
+INFO:root:
+INFO:root:Epoch  29.0 [1767.7 s] 	 train= 517.9619,5324.3774 valid= 0.7395 test= 0.7396 [91.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 516.5434, l2 = 50.8230, 0.0000
+INFO:root:
+INFO:root:Epoch  30.0 [1765.3 s] 	 train= 516.5434,5082.2959 valid= 0.7239 test= 0.7239 [89.4 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 515.2956, l2 = 48.5480, 0.0000
+INFO:root:
+INFO:root:Epoch  31.0 [1777.9 s] 	 train= 515.2956,4854.7954 valid= 0.6645 test= 0.6631 [97.5 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 514.2692, l2 = 46.3703, 0.0000
+INFO:root:
+INFO:root:Epoch  32.0 [1768.6 s] 	 train= 514.2692,4637.0332 valid= 0.7251 test= 0.7234 [97.5 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 513.2905, l2 = 44.3295, 0.0000
+INFO:root:
+INFO:root:Epoch  33.0 [1775.2 s] 	 train= 513.2905,4432.9458 valid= 0.7692 test= 0.7694 [99.9 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 512.5197, l2 = 42.4275, 0.0000
+INFO:root:
+INFO:root:Epoch  34.0 [1807.6 s] 	 train= 512.5197,4242.7485 valid= 0.7748 test= 0.7734 [97.0 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 511.9640, l2 = 40.5848, 0.0000
+INFO:root:
+INFO:root:Epoch  35.0 [1795.3 s] 	 train= 511.9640,4058.4832 valid= 0.7581 test= 0.7560 [98.2 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 511.4265, l2 = 38.8735, 0.0000
+INFO:root:
+INFO:root:Epoch  36.0 [1809.0 s] 	 train= 511.4265,3887.3533 valid= 0.7708 test= 0.7698 [97.8 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 510.9871, l2 = 37.2560, 0.0000
+INFO:root:
+INFO:root:Epoch  37.0 [1797.2 s] 	 train= 510.9871,3725.6003 valid= 0.7467 test= 0.7465 [97.7 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 510.5665, l2 = 35.7310, 0.0000
+INFO:root:
+INFO:root:Epoch  38.0 [1803.8 s] 	 train= 510.5665,3573.0957 valid= 0.7703 test= 0.7692 [97.8 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 510.3222, l2 = 34.2720, 0.0000
+INFO:root:
+INFO:root:Epoch  39.0 [1794.8 s] 	 train= 510.3222,3427.2041 valid= 0.7697 test= 0.7691 [99.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 510.0324, l2 = 32.9283, 0.0000
+INFO:root:
+INFO:root:Epoch  40.0 [1789.1 s] 	 train= 510.0324,3292.8328 valid= 0.7535 test= 0.7537 [92.0 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.8780, l2 = 31.6771, 0.0000
+INFO:root:
+INFO:root:Epoch  41.0 [1790.4 s] 	 train= 509.8780,3167.7065 valid= 0.7625 test= 0.7632 [99.9 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.6204, l2 = 30.4707, 0.0000
+INFO:root:
+INFO:root:Epoch  42.0 [1809.0 s] 	 train= 509.6204,3047.0720 valid= 0.7861 test= 0.7880 [102.2 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.5338, l2 = 29.3697, 0.0000
+INFO:root:
+INFO:root:Epoch  43.0 [1795.8 s] 	 train= 509.5338,2936.9731 valid= 0.7681 test= 0.7689 [100.7 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.5336, l2 = 28.3456, 0.0000
+INFO:root:
+INFO:root:Epoch  44.0 [1805.8 s] 	 train= 509.5336,2834.5579 valid= 0.7846 test= 0.7858 [102.2 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.4741, l2 = 27.4071, 0.0000
+INFO:root:
+INFO:root:Epoch  45.0 [1794.2 s] 	 train= 509.4741,2740.7085 valid= 0.7921 test= 0.7940 [96.1 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.4781, l2 = 26.5346, 0.0000
+INFO:root:
+INFO:root:Epoch  46.0 [1793.8 s] 	 train= 509.4781,2653.4561 valid= 0.8350 test= 0.8361 [97.1 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.3851, l2 = 25.7431, 0.0000
+INFO:root:
+INFO:root:Epoch  47.0 [1785.4 s] 	 train= 509.3851,2574.3127 valid= 0.8206 test= 0.8223 [97.8 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.2610, l2 = 25.0212, 0.0000
+INFO:root:
+INFO:root:Epoch  48.0 [1776.0 s] 	 train= 509.2610,2502.1235 valid= 0.8160 test= 0.8172 [97.7 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.2969, l2 = 24.3856, 0.0000
+INFO:root:
+INFO:root:Epoch  49.0 [1779.2 s] 	 train= 509.2969,2438.5569 valid= 0.8394 test= 0.8399 [96.5 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.2359, l2 = 23.8065, 0.0000
+INFO:root:
+INFO:root:Epoch  50.0 [1779.2 s] 	 train= 509.2359,2380.6472 valid= 0.8361 test= 0.8358 [97.8 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.1032, l2 = 23.3072, 0.0000
+INFO:root:
+INFO:root:Epoch  51.0 [1780.3 s] 	 train= 509.1032,2330.7234 valid= 0.8208 test= 0.8223 [97.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.0975, l2 = 22.8736, 0.0000
+INFO:root:
+INFO:root:Epoch  52.0 [1780.3 s] 	 train= 509.0975,2287.3628 valid= 0.8321 test= 0.8323 [96.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 509.0349, l2 = 22.5067, 0.0000
+INFO:root:
+INFO:root:Epoch  53.0 [1780.8 s] 	 train= 509.0349,2250.6650 valid= 0.8444 test= 0.8445 [98.2 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 508.9474, l2 = 22.2027, 0.0000
+INFO:root:
+INFO:root:Epoch  54.0 [1782.0 s] 	 train= 508.9474,2220.2717 valid= 0.8513 test= 0.8512 [99.4 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 508.7961, l2 = 21.9381, 0.0000
+INFO:root:
+INFO:root:Epoch  55.0 [1776.3 s] 	 train= 508.7961,2193.8113 valid= 0.8461 test= 0.8459 [96.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 508.7135, l2 = 21.7196, 0.0000
+INFO:root:
+INFO:root:Epoch  56.0 [1773.5 s] 	 train= 508.7135,2171.9631 valid= 0.8432 test= 0.8429 [97.1 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 508.6249, l2 = 21.5531, 0.0000
+INFO:root:
+INFO:root:Epoch  57.0 [1777.7 s] 	 train= 508.6249,2155.3105 valid= 0.8297 test= 0.8288 [96.1 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 508.4914, l2 = 21.4187, 0.0000
+INFO:root:
+INFO:root:Epoch  58.0 [1778.4 s] 	 train= 508.4914,2141.8672 valid= 0.8477 test= 0.8469 [98.9 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 508.3721, l2 = 21.3446, 0.0000
+INFO:root:
+INFO:root:Epoch  59.0 [1783.6 s] 	 train= 508.3721,2134.4631 valid= 0.8424 test= 0.8414 [97.9 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 508.1579, l2 = 21.3002, 0.0000
+INFO:root:
+INFO:root:Epoch  60.0 [1777.7 s] 	 train= 508.1579,2130.0239 valid= 0.8469 test= 0.8465 [97.1 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 507.9513, l2 = 21.2885, 0.0000
+INFO:root:
+INFO:root:Epoch  61.0 [1785.1 s] 	 train= 507.9513,2128.8489 valid= 0.8454 test= 0.8448 [97.9 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 507.8948, l2 = 21.3149, 0.0000
+INFO:root:
+INFO:root:Epoch  62.0 [1778.4 s] 	 train= 507.8948,2131.4946 valid= 0.8289 test= 0.8285 [96.6 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 507.6402, l2 = 21.3635, 0.0000
+INFO:root:
+INFO:root:Epoch  63.0 [1779.8 s] 	 train= 507.6402,2136.3542 valid= 0.8243 test= 0.8237 [98.8 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 507.4627, l2 = 21.4489, 0.0000
+INFO:root:
+INFO:root:Epoch  64.0 [1778.4 s] 	 train= 507.4627,2144.8916 valid= 0.8231 test= 0.8221 [97.5 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 507.2910, l2 = 21.5502, 0.0000
+INFO:root:
+INFO:root:Epoch  65.0 [1779.6 s] 	 train= 507.2910,2155.0193 valid= 0.8277 test= 0.8271 [97.5 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 507.0260, l2 = 21.6817, 0.0000
+INFO:root:
+INFO:root:Epoch  66.0 [1775.9 s] 	 train= 507.0260,2168.1721 valid= 0.8454 test= 0.8456 [95.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 506.8589, l2 = 21.8254, 0.0000
+INFO:root:
+INFO:root:Epoch  67.0 [1781.7 s] 	 train= 506.8589,2182.5425 valid= 0.8383 test= 0.8384 [96.0 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 506.6063, l2 = 21.9922, 0.0000
+INFO:root:
+INFO:root:Epoch  68.0 [1781.1 s] 	 train= 506.6063,2199.2175 valid= 0.8314 test= 0.8321 [97.9 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 506.3488, l2 = 22.1742, 0.0000
+INFO:root:
+INFO:root:Epoch  69.0 [1782.8 s] 	 train= 506.3488,2217.4243 valid= 0.8239 test= 0.8239 [98.0 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 506.0258, l2 = 22.3606, 0.0000
+INFO:root:
+INFO:root:Epoch  70.0 [1777.9 s] 	 train= 506.0258,2236.0574 valid= 0.8322 test= 0.8330 [96.9 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 505.6548, l2 = 22.5888, 0.0000
+INFO:root:
+INFO:root:Epoch  71.0 [1775.6 s] 	 train= 505.6548,2258.8794 valid= 0.8396 test= 0.8394 [96.6 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 505.4419, l2 = 22.8308, 0.0000
+INFO:root:
+INFO:root:Epoch  72.0 [1779.1 s] 	 train= 505.4419,2283.0779 valid= 0.8344 test= 0.8340 [97.4 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 505.1519, l2 = 23.0495, 0.0000
+INFO:root:
+INFO:root:Epoch  73.0 [1777.5 s] 	 train= 505.1519,2304.9529 valid= 0.8514 test= 0.8516 [96.0 s] 	 auc
+INFO:root:Save model to ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 504.8821, l2 = 23.2544, 0.0000
+INFO:root:
+INFO:root:Epoch  74.0 [1769.5 s] 	 train= 504.8821,2325.4390 valid= 0.8460 test= 0.8455 [96.6 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 504.4637, l2 = 23.4655, 0.0000
+INFO:root:
+INFO:root:Epoch  75.0 [1775.5 s] 	 train= 504.4637,2346.5481 valid= 0.8432 test= 0.8427 [96.9 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 504.1785, l2 = 23.6869, 0.0000
+INFO:root:
+INFO:root:Epoch  76.0 [1778.9 s] 	 train= 504.1785,2368.6902 valid= 0.8288 test= 0.8280 [97.5 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 503.8519, l2 = 23.8853, 0.0000
+INFO:root:
+INFO:root:Epoch  77.0 [1771.5 s] 	 train= 503.8519,2388.5295 valid= 0.8096 test= 0.8092 [96.7 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 503.4912, l2 = 24.0717, 0.0000
+INFO:root:
+INFO:root:Epoch  78.0 [1784.2 s] 	 train= 503.4912,2407.1692 valid= 0.8009 test= 0.8014 [99.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 503.0477, l2 = 24.2890, 0.0000
+INFO:root:
+INFO:root:Epoch  79.0 [1786.4 s] 	 train= 503.0477,2428.9014 valid= 0.7929 test= 0.7936 [94.3 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 502.4952, l2 = 24.5047, 0.0000
+INFO:root:
+INFO:root:Epoch  80.0 [1780.0 s] 	 train= 502.4952,2450.4661 valid= 0.7759 test= 0.7770 [98.0 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 501.7979, l2 = 24.7489, 0.0000
+INFO:root:
+INFO:root:Epoch  81.0 [1777.4 s] 	 train= 501.7979,2474.8906 valid= 0.7446 test= 0.7457 [97.7 s] 	 auc
+INFO:root:
+INFO:root:
+INFO:root:mean loss = 500.8441, l2 = 25.0320, 0.0000
+INFO:root:
+INFO:root:Epoch  82.0 [1778.6 s] 	 train= 500.8441,2503.2048 valid= 0.7246 test= 0.7258 [97.7 s] 	 auc
+INFO:root:Early stop at 82 based on validation result.
+INFO:root:Load model from ../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt
+INFO:root:
+INFO:root:Best Iter(validation)=  73.0 	 train= 505.1519,2304.9529 valid= 0.8514 test= 0.8516 [147607.9 s] 	 auc
+INFO:root:
+INFO:root:Best Iter(test)=  73.0 	 train= 505.1519,2304.9529 valid= 0.8514 test= 0.8516 [147607.9 s] 	 auc
+INFO:root:
+Save Results to ../result/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pk
+INFO:root:
+Test After Training on Train: ndcg@1=0.7557, ndcg@5=0.9098, ndcg@10=-1, ndcg@20=-1, ndcg@50=-1, ndcg@100=-1, hit@1=0.7557, hit@5=1.0000, hit@10=1.0000, hit@20=1.0000, hit@50=1.0000, hit@100=1.0000, precision@1=0.7557, precision@5=0.5000, precision@10=0.5000, precision@20=0.5000, precision@50=0.5000, precision@100=0.5000, recall@1=0.7556, recall@5=1.0000, recall@10=1.0000, recall@20=1.0000, recall@50=1.0000, recall@100=1.0000
+
+INFO:root:
+Test After Training on Valid: ndcg@1=0.8584, ndcg@5=-1, ndcg@10=-1, ndcg@20=-1, ndcg@50=-1, ndcg@100=-1, hit@1=0.8584, hit@5=1.0000, hit@10=1.0000, hit@20=1.0000, hit@50=1.0000, hit@100=1.0000, precision@1=0.8584, precision@5=0.5000, precision@10=0.5000, precision@20=0.5000, precision@50=0.5000, precision@100=0.5000, recall@1=0.8584, recall@5=1.0000, recall@10=1.0000, recall@20=1.0000, recall@50=1.0000, recall@100=1.0000
+
+INFO:root:
+Test After Training on Test: ndcg@1=0.8588, ndcg@5=0.9479, ndcg@10=0.9479, ndcg@20=-1, ndcg@50=-1, ndcg@100=-1, hit@1=0.8588, hit@5=1.0000, hit@10=1.0000, hit@20=1.0000, hit@50=1.0000, hit@100=1.0000, precision@1=0.8588, precision@5=0.5000, precision@10=0.5000, precision@20=0.5000, precision@50=0.5000, precision@100=0.5000, recall@1=0.8587, recall@5=1.0000, recall@10=1.0000, recall@20=1.0000, recall@50=1.0000, recall@100=1.0000
+
+INFO:root:# of params: 47559744
+INFO:root:{'gpu': '0', 'verbose': 20, 'log_file': '../log/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.txt', 'result_file': '../result/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pk', 'random_seed': 2020, 'train': 1, 'debugging': 0, 'save_res': 1, 'rank': 1, 'regenerate': 0, 'unlabel_test': 0, 'dict_size': 500000, 'sent_max': 50, 'topic_head': 0, 'tag_head': 0, 'entity_tail': 1, 'keyword_head': 1, 'graph_wn': 100, 'graph_tn': 2, 'all_his': 0, 'max_his': 10, 'neg_his': 1, 'neg_column': 1, 'drop_no_his': 1, 'drop_neg': 1, 'path': '../dataset/', 'dataset': 'adressa-1w', 'label': 'label', 'w2v_size': 64, 'att_size': 32, 'cs_ratio': 0.1, 'cf': 1, 'layer_norm': 1, 'item_query': 1, 'his_rnn': 1, 'loss_f': 'cr', 'u_vector_size': 64, 'i_vector_size': 64, 'loss_sum': 1, 'model_path': '../model/WG4RecAdressa/11_WG4RecAdressa_adressa-1w_2020_all0_att32_bat128_cf1_csr0.1_dro1_dro1_dro0.5_ent1_gra10_gra10_gra1_gra1_gra2_gra100_his1_ive64_ite1_key1_l20.01_l2b1_l2s0.0_lay1_loscr_los1_lr1e-06_max10_nbt0_nbt0_neg1_neg1_optAdam_sam0.3_sam10_sam1.0_sen5.pt', 'load': 0, 'epoch': 100, 'check_epoch': 1, 'check_train': 0, 'early_stop': 1, 'es_worse': 10, 'es_long': 40, 'lr': 1e-06, 'batch_size': 128, 'eval_batch_size': 32, 'dropout': 0.5, 'l2_bias': 1, 'l2': 0.01, 'l2s': 0.0, 'grad_clip_n': 10, 'grad_clip_v': 10, 'optimizer': 'Adam', 'metrics': 'auc', 'pre_gpu': 0, 'num_workers': 16, 'gc_batch': 0, 'gc': 0, 'pin_memory': 1, 'graph_l': 1, 'graph_sample': 1, 'word_wn': 10, 'word_tn': 1, 'nb_type': 0, 'nb_topic': 0, 'sparse_his': 0, 'test_sample_n': 1, 'train_sample_n': 1, 'sample_un_p': 1.0, 'sample_pop': 10, 'sample_given_p': 0.3, 'buffer_dp': 0}
+INFO:root:2021-11-27 13:03:50
