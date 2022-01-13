@@ -62,7 +62,7 @@ Other settings with `pytorch>=1.3.1` may also work.
 
 ## Datasets
 
-The processed datasets can be downloaded from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/d/a8b40e16594540a38f5d/) 
+The processed datasets can be downloaded from [Tsinghua Cloud](https://cloud.tsinghua.edu.cn/d/a8b40e16594540a38f5d/), in which `*.word_graph.pk` is the generated word graph. (The codes for word graph construction are in [`./src/preprocess`](https://github.com/THUIR/WG4Rec/blob/master/src/preprocess) for reference).
 
 You should place the datasets in the `./dataset/`. The tree structure of directories should look like:
 
@@ -79,6 +79,8 @@ You should place the datasets in the `./dataset/`. The tree structure of directo
     ├── runners
     └── utils
 ```
+
+
 
 
 
